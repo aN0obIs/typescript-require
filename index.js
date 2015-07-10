@@ -55,7 +55,9 @@ function compileTS (module) {
     "--target",
     options.targetES5 ? "ES5" : "ES3", !! options.moduleKind ? "--module" : "", !! options.moduleKind ? options.moduleKind : "",
     "--outDir",
-    path.join(tmpDir, relativeFolder),
+    tmpDir,
+    "--rootDir",
+    process.cwd(),
     libPath,
     options.nodeLib ? path.resolve(__dirname, "typings/node.d.ts") : null,
     module.filename
